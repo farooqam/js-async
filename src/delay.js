@@ -1,6 +1,6 @@
-const delay = (timeout = 0, success = true) => {
+const delay = async (timeout = 0, success = true) => {
     const promise = new Promise((resolve, reject) => {
-        setTimeout(() => {
+        return setTimeout(() => {
             if(success) {
                 resolve(`RESOLVED after ${timeout} ms.`);
             }
@@ -13,8 +13,6 @@ const delay = (timeout = 0, success = true) => {
     return promise;
 };
 
-const useDelay = (timeout = 0, success = true) => {
-    return delay(timeout, success);
+module.exports = {
+    "delay": delay
 };
-
-module.exports = useDelay;
